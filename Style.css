@@ -1,0 +1,257 @@
+﻿/* Styles.css*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Montserrat, sans-serif;
+    background-color: #f2f2f2;
+}
+
+header {
+    background-color: white;
+    color: #333;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 28px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.options {
+    margin-bottom: 20px;
+}
+
+    .options label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .paragraphs span,
+    .words span {
+        font-weight: 600;
+        color: #333;
+        font-family: 'Open Sans', sans-serif;
+        margin-left: 10px;
+    }
+
+    .options select,
+    .options input[type="number"] {
+        width: 100%;
+        padding: 17px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        color: #000;
+    }
+
+    .options select {
+        appearance: none;
+    }
+
+.paragraphs, .words {
+    margin: 20px auto;
+}
+
+
+.options button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+    font-size: 20px;
+    font-weight: 500;
+    border: 2px solid #50555c;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+    .options button:hover {
+        background-color: #FF8AE2;
+        color: #fff;
+        border: 2px solid transparent;
+    }
+
+.output {
+    background-color: white;
+    padding: 30px;
+    margin: 20px auto;
+    border-radius: 10px;
+    min-height: 200px;
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.2);
+    color: #333;
+}
+
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 90%;
+    cursor: pointer;
+    outline: none;
+    border-radius: 15px;
+    height: 6px;
+    background: #ccc;
+}
+
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        height: 15px;
+        width: 15px;
+        background-color: #49FF76;
+        border-radius: 50%;
+        border: none;
+        transition: .2s ease-in-out;
+    }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            box-shadow: 0 0 0 10px rgba(138, 255, 167, .2);
+        }
+
+
+
+/* <------------------------------------[ Toast Notifications ]------------------------------------> */
+.toast {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    max-width: 350px;
+    background: #fff;
+    padding: 0.5rem;
+    border-radius: 4px;
+    box-shadow: -1px 1px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1023;
+    animation: slideInRight 0.3s ease-in-out forwards, fadeOut 0.5s ease-in-out forwards 4s;
+    transform: translateX(110%);
+}
+
+    .toast.closing {
+        animation: slideOutRight 0.5s ease-in-out forwards;
+    }
+
+.toast-progress {
+    position: absolute;
+    display: block;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: #b7b7b7;
+    animation: toastProgress 3s ease-in-out forwards;
+}
+
+.toast-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toast-icon {
+    padding: 0.35rem 0.5rem;
+    font-size: 1.5rem;
+}
+
+.toast-message {
+    flex: 1;
+    font-size: 0.9rem;
+    color: #000000;
+    padding: 0.5rem;
+}
+
+.toast.toast-success {
+    background: #95eab8;
+}
+
+    .toast.toast-success .toast-progress {
+        background-color: #2ecc71;
+    }
+
+.toast.toast-error {
+    background: #efaca5;
+}
+
+    .toast.toast-error .toast-progress {
+        background-color: #e74c3c;
+    }
+
+.toast.toast-info {
+    background: #bddaed;
+}
+
+    .toast.toast-info .toast-progress {
+        background-color: #3498db;
+    }
+
+.toast.toast-warning {
+    background: #ead994;
+}
+
+    .toast.toast-warning .toast-progress {
+        background-color: #f1c40f;
+    }
+
+/* <--------------[ Toast Animations ]--------------> */
+@keyframes slideInRight{
+    0%{
+        transform: translateX(110%);
+    }
+    75%{
+        transform: translateX(-10%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+@keyframes slideOutRight {
+    0% {
+        transform: translateX(0%);
+    }
+
+    75% {
+        transform: translateX(-10%);
+    }
+
+    100% {
+        transform: translateX(110%);
+    }
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes toastProgress {
+    0% {
+        width: 100%;
+    }
+
+    100% {
+        width: 0%;
+    }
+}
